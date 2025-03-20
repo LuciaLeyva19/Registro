@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Registro.AgregarAlarma"
+             BackgroundColor="#AC8764"
+             NavigationPage.HasNavigationBar="False"
+             >
+
+    <VerticalStackLayout Spacing="20" Padding="15">
+
+        <!-- Título -->
+        <Label Text="Selecciona las fechas para pausar tu alarma a las 8:30 de la mañana los días Lun, Mar, Mié, Jue, Vie" 
+               FontSize="Default"
+               TextColor="White"
+               HorizontalOptions="Center"/>
+
+        <!-- Rango de fechas -->
+        <Label Text="Empezar fecha – Fin fecha" 
+               HorizontalOptions="Center"
+               TextColor="White"/>
+
+        <!-- Mes -->
+        <Label Text="Octubre 2025" 
+               FontSize="Large"
+               HorizontalOptions="Center"/>
+
+        <!-- Días de la semana -->
+        <Grid ColumnDefinitions="*,*,*,*,*,*,*"
+              HorizontalOptions="Fill"
+              Margin="0,10">
+            <Label Text="L" Grid.Column="0"/>
+            <!-- Lunes -->
+            <Label Text="M" Grid.Column="1"/>
+            <!-- Martes -->
+            <Label Text="X" Grid.Column="2"/>
+            <!-- Miércoles -->
+            <Label Text="J" Grid.Column="3"/>
+            <!-- Jueves -->
+            <Label Text="V" Grid.Column="4"/>
+            <!-- Viernes -->
+            <Label Text="S" Grid.Column="5"/>
+            <!-- Sábado -->
+            <Label Text="D" Grid.Column="6"/>
+            <!-- Domingo -->
+        </Grid>
+
+        <!-- Calendario -->
+        <Grid ColumnDefinitions="*,*,*,*,*,*,*"
+              RowDefinitions="*,*,*,*,*,*"
+              HorizontalOptions="Fill"
+              VerticalOptions="Center">
+
+            <!-- Primera semana -->
+            <Label Text="1" Grid.Row="0" Grid.Column="0"/>
+            <Label Text="2" Grid.Row="0" Grid.Column="1"/>
+
+            <!-- Segunda semana -->
+            <Label Text="3" Grid.Row="1" Grid.Column="0"/>
+            <Label Text="4" Grid.Row="1" Grid.Column="1"/>
+            <Label Text="5" Grid.Row="1" Grid.Column="2"/>
+            <Label Text="6" Grid.Row="1" Grid.Column="3"/>
+            <Label Text="7" Grid.Row="1" Grid.Column="4"/>
+            <Label Text="8" Grid.Row="1" Grid.Column="5"/>
+            <Label Text="9" Grid.Row="1" Grid.Column="6"/>
+
+            <!-- Tercera semana -->
+            <Label Text="10" Grid.Row="2" Grid.Column="0"/>
+            <Label Text="11" Grid.Row="2" Grid.Column="1"/>
+            <Label Text="12" Grid.Row="2" Grid.Column="2"/>
+            <Label Text="13" Grid.Row="2" Grid.Column="3"/>
+            <Label Text="14" Grid.Row="2" Grid.Column="4"/>
+            <Label Text="15" Grid.Row="2" Grid.Column="5"/>
+            <Label Text="16" Grid.Row="2" Grid.Column="6"/>
+
+            <!-- Cuarta semana -->
+            <Label Text="17" Grid.Row="3" Grid.Column="0"/>
+            <Label Text="18" Grid.Row="3" Grid.Column="1"/>
+            <Label Text="19" Grid.Row="3" Grid.Column="2"/>
+            <Label Text="20" Grid.Row="3" Grid.Column="3"/>
+            <Label Text="21" Grid.Row="3" Grid.Column="4"/>
+            <Label Text="22" Grid.Row="3" Grid.Column="5"/>
+            <Label Text="23" Grid.Row="3" Grid.Column="6"/>
+
+            <!-- Quinta semana -->
+            <Label Text="24" Grid.Row="4" Grid.Column="0"/>
+            <Label Text="25" Grid.Row="4" Grid.Column="1"/>
+            <Label Text="26" Grid.Row="4" Grid.Column="2"/>
+            <Label Text="27" Grid.Row="4" Grid.Column="3"/>
+            <Label Text="28" Grid.Row="4" Grid.Column="4"/>
+            <Label Text="29" Grid.Row="4" Grid.Column="5"/>
+            <Label Text="30" Grid.Row="4" Grid.Column="6"/>
+
+            <!-- Sexta semana -->
+            <Label Text="31" Grid.Row="5" Grid.Column="0"/>
+        </Grid>
+
+        <!-- Botones -->
+        <HorizontalStackLayout Spacing="20" HorizontalOptions="End">
+            <Button Text="Cancelar"
+                    WidthRequest="100"
+                    BackgroundColor="LightGray"
+                    Clicked="ClosePopup"
+                    TextColor="Black"/>
+            <Button Text="Ok"
+                    WidthRequest="100"
+                    BackgroundColor="LightBlue"
+                    Clicked="ClosePopup"
+                    TextColor="Black"/>
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>

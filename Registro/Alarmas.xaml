@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Registro.Alarmas"
+             BackgroundColor="#AC8764"
+             NavigationPage.HasNavigationBar="False"
+             >
+    
+    <VerticalStackLayout Padding="20" Spacing="20">
+        <Label Text="Horario" FontSize="24" TextColor="White" HorizontalTextAlignment="Center"/>
+
+        <CollectionView>
+            <CollectionView.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>8:30 AM</x:String>
+                    <x:String>9:00 AM</x:String>
+                    <x:String>11:00 AM</x:String>
+                    <x:String>1:00 PM</x:String>
+                    <x:String>3:00 PM</x:String>
+                    <x:String>5:00 PM</x:String>
+                </x:Array>
+            </CollectionView.ItemsSource>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame BackgroundColor="White" Padding="15" CornerRadius="10" Margin="0,5">
+                        <Grid ColumnDefinitions="*,Auto">
+                            <Label Text="{Binding}" FontSize="25" TextColor="#AC8764"/>
+                            <Switch Grid.Column="1"/>
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Grid VerticalOptions="Center" HorizontalOptions="Center" Margin="0,10,0,0">
+            <Button Text="+" 
+                FontSize="30" 
+                BackgroundColor="Pink" 
+                TextColor="Black"
+                WidthRequest="60" 
+                HeightRequest="60"
+                CornerRadius="10"
+                Clicked="ShowPopup"/>
+        </Grid>
+    </VerticalStackLayout>
+</ContentPage>

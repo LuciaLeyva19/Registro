@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<FlyoutPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            x:Class="Registro.PantallaPrincipal"
+            x:Name="MiFlyoutPage"
+            BackgroundColor="#FDF7F7">
+
+    <!-- Menú lateral (Flyout) -->
+    <FlyoutPage.Flyout>
+        <ContentPage Title="Menú" BackgroundColor="#FFF7EE">
+            <VerticalStackLayout Spacing="10" Padding="10">
+                <!-- Encabezado del menú -->
+                <Frame BackgroundColor="#AC8764" HeightRequest="60" Padding="10" CornerRadius="30">
+                    <Grid>
+                        <Image Source="barramenu.png" HeightRequest="32" HorizontalOptions="Start">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="AbrirMenu"/>
+                            </Image.GestureRecognizers>
+                        </Image>
+                        <Label Text="Menú"
+                               TextColor="White"
+                               FontSize="20"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"/>
+                        <Image Source="pataa.png" HeightRequest="43"
+                               HorizontalOptions="End"
+                               VerticalOptions="Center"/>
+                    </Grid>
+                </Frame>
+
+                <!-- Opciones del menú -->
+                <Button Text="Inicio" 
+                        BackgroundColor="#AC8764" 
+                        TextColor="White" 
+                        CornerRadius="20"
+                        Clicked="OnMenuItemClicked"/>
+                <Button Text="Cambiar contraseña" 
+                        BackgroundColor="#AC8764" 
+                        TextColor="White" 
+                        CornerRadius="20"
+                        Clicked="OnMenuItemClicked"/>
+                <Button Text="Notificaciones" 
+                        BackgroundColor="#AC8764" 
+                        TextColor="White" 
+                        CornerRadius="20"
+                        Clicked="OnMenuItemClicked"/>
+                <Button Text="Historial" 
+                        BackgroundColor="#AC8764" 
+                        TextColor="White" 
+                        CornerRadius="20"
+                        Clicked="OnMenuItemClicked"/>
+                <Button Text="Alarmas" 
+                        BackgroundColor="#AC8764" 
+                        TextColor="White" 
+                        CornerRadius="20"
+                        Clicked="OnMenuItemClicked"/>
+                <Button Text="Cerrar sesión" 
+                        BackgroundColor="#8e5431" 
+                        TextColor="White" 
+                        CornerRadius="20"
+                        Clicked="OnMenuItemClicked"/>   
+            </VerticalStackLayout>
+        </ContentPage>
+    </FlyoutPage.Flyout>
+
+    <!-- Contenido principal (Detail) -->
+    <FlyoutPage.Detail>
+        <NavigationPage>
+            <x:Arguments>
+                <!-- Deshabilitar la barra de navegación en la página principal -->
+                <ContentPage NavigationPage.HasNavigationBar="False">
+                    <VerticalStackLayout Spacing="0" BackgroundColor="#FFF7EE">
+                        <!-- Encabezado de la página principal -->
+                        <Frame BackgroundColor="#AC8764" HeightRequest="60" Padding="10,0" CornerRadius="30" Margin="0,20,0,0">
+                            <Grid>
+                                <Image Source="barramenu.png" HeightRequest="32" HorizontalOptions="Start">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="AbrirMenu"/>
+                                    </Image.GestureRecognizers>
+                                </Image>
+                                
+                                <Label Text="Inicio"
+                                       TextColor="White"
+                                       FontSize="20"
+                                       HorizontalOptions="Center"
+                                       VerticalOptions="Center"/>
+                                <Image Source="pataa.png" HeightRequest="43"
+                                       HorizontalOptions="End"
+                                       VerticalOptions="Center"/>
+                            </Grid>
+                        </Frame>
+
+                        <!-- Contenido de la página principal -->
+                        <VerticalStackLayout Spacing="20" Padding="10" VerticalOptions="FillAndExpand">
+                            <Image Source="galleta.png"
+                                    HeightRequest="165"
+                                    HorizontalOptions="Start"
+                                    Margin="-60,1,0,100"
+                                   Opacity="0.5"/>
+                            <Image Source="galleta.png"
+                                     HeightRequest="160"
+                                     HorizontalOptions="Start"
+                                     Margin="300,1,0,-500"
+                                    Opacity="0.5"/>
+
+                            <Label Text="Lleno" 
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center" 
+                                   Margin="0,100,0,30"
+                                   FontSize="25"/>
+                            <Image Source="recipiente.png" HeightRequest="150" Margin="0,0,0,90" />
+                            <Frame BackgroundColor="#AC8764"
+                                   CornerRadius="30"
+                                   Padding="50"
+                                   HasShadow="False"
+                                   HorizontalOptions="Fill"
+                                   VerticalOptions="End">
+                                <VerticalStackLayout Padding="20">
+                                    <Label Text="Selecciona la cantidad de comida" 
+                                           FontSize="20" 
+                                           HorizontalOptions="Center"
+                                           TextColor="White"
+                                           FontAttributes="Bold"
+                                           Margin="0,-25,0,20"
+                                           />
+                                    <Slider x:Name="GramosSlider"
+                                            Minimum="10" 
+                                            Maximum="200" 
+                                            Value="50"
+                                            ThumbColor="Brown"
+                                            DragCompleted="GramosSlider_ValueChanged"/>
+                                    <Label x:Name="GramosLabel"
+                                           Text="Cantidad: 50 g"
+                                           FontSize="18"
+                                           HorizontalOptions="Center"
+                                           TextColor="White"
+                                           FontAttributes="Bold"/>
+                                    <Button Text="Dispensar comida"
+                                            BackgroundColor="White"
+                                            TextColor="#AC8764"
+                                            Margin="0,15,0,0"
+                                            CornerRadius="20"
+                                            HeightRequest="70" 
+                                            WidthRequest="300"
+                                            BorderColor="White"
+                                            BorderWidth="3"
+                                            FontSize="25"
+                                            Clicked="DispensarComida_Clicked"/>
+                                   
+                                </VerticalStackLayout>
+                        
+                            </Frame>
+                            
+                        </VerticalStackLayout>
+                    </VerticalStackLayout>
+                </ContentPage>
+            </x:Arguments>
+        </NavigationPage>
+    </FlyoutPage.Detail>
+</FlyoutPage>
