@@ -2,45 +2,102 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Registro.Alarmas"
-             BackgroundColor="#AC8764"
+             BackgroundColor="#FFF7EE"
              NavigationPage.HasNavigationBar="False"
              >
-    
-    <VerticalStackLayout Padding="20" Spacing="20">
-        <Label Text="Horario" FontSize="24" TextColor="White" HorizontalTextAlignment="Center"/>
 
-        <CollectionView>
-            <CollectionView.ItemsSource>
-                <x:Array Type="{x:Type x:String}">
-                    <x:String>8:30 AM</x:String>
-                    <x:String>9:00 AM</x:String>
-                    <x:String>11:00 AM</x:String>
-                    <x:String>1:00 PM</x:String>
-                    <x:String>3:00 PM</x:String>
-                    <x:String>5:00 PM</x:String>
-                </x:Array>
-            </CollectionView.ItemsSource>
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <Frame BackgroundColor="White" Padding="15" CornerRadius="10" Margin="0,5">
-                        <Grid ColumnDefinitions="*,Auto">
-                            <Label Text="{Binding}" FontSize="25" TextColor="#AC8764"/>
-                            <Switch Grid.Column="1"/>
-                        </Grid>
-                    </Frame>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
+    <Grid RowDefinitions="Auto,*,Auto" Padding="0" Margin="0">
+        <!-- Encabezado -->
+        <Frame BackgroundColor="#AC8764" HeightRequest="60" Padding="10,0" CornerRadius="30" Margin="0,25,0,0" BorderColor="#FFF7EE">
+            <Grid>
+                <ImageButton Source="flecha2.png"
+                      HeightRequest="45"
+                      Margin="-400,0,0,-1"
+                      Clicked="Alarmainicio"/>
+                <Label Text="Horarios"
+                TextColor="White"
+                FontSize="20"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"/>
+                <Image Source="pataa.png" HeightRequest="43"
+                HorizontalOptions="End"
+                VerticalOptions="Center"/>
+            </Grid>
+        </Frame>
 
-        <Grid VerticalOptions="Center" HorizontalOptions="Center" Margin="0,10,0,0">
-            <Button Text="+" 
+
+        <!-- Contenido Principal -->
+        <ScrollView Grid.Row="1" Margin="0">
+            <VerticalStackLayout Spacing="20" Padding="20">
+                <Frame BackgroundColor="White" Padding="15" CornerRadius="16" HasShadow="True">
+                    <VerticalStackLayout>
+                        <Label Text="Próxima dispensación" FontSize="18" TextColor="#666666" Margin="0,0,0,10"/>
+                        <Label Text="8:30 AM" FontSize="36" TextColor="#8E6C47" FontAttributes="Bold"/>
+                        <Label Text="en 3 horas y 45 minutos" FontSize="16" TextColor="#666666" Margin="0,5,0,0"/>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <Label Text="Todas las Alarmas" FontSize="20" TextColor="#333333" FontAttributes="Bold" Margin="5,10,0,5"/>
+
+                <CollectionView Margin="0,5,0,0">
+                    <CollectionView.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>8:30 AM</x:String>
+                            <x:String>9:00 AM</x:String>
+                            <x:String>11:00 AM</x:String>
+                            <x:String>1:00 PM</x:String>
+                            <x:String>3:00 PM</x:String>
+                            <x:String>5:00 PM</x:String>
+                        </x:Array>
+                    </CollectionView.ItemsSource>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame BackgroundColor="White" Padding="15" CornerRadius="16" Margin="0,5,0,10" HasShadow="True">
+                                <Grid ColumnDefinitions="Auto,*,Auto" RowDefinitions="Auto,Auto">
+                                    <Image Grid.Column="0" Grid.RowSpan="2"
+                                           Source="alarm_icon.png"
+                                           WidthRequest="40"
+                                           HeightRequest="40"
+                                           VerticalOptions="Center"
+                                           Margin="0,0,15,0"/>
+
+                                    <Label Grid.Column="1" Grid.Row="0"
+                                           Text="{Binding}" 
+                                           FontSize="22" 
+                                           TextColor="#333333"
+                                           FontAttributes="Bold"
+                                           VerticalOptions="Center"/>
+
+                                    <Label Grid.Column="1" Grid.Row="1"
+                                           Text="Lunes a Viernes" 
+                                           FontSize="14" 
+                                           TextColor="#666666"
+                                           VerticalOptions="Center"/>
+
+                                    <Switch Grid.Column="2" Grid.RowSpan="2"
+                                            OnColor="#8E6C47"
+                                            ThumbColor="White"
+                                            VerticalOptions="Center"/>
+                                </Grid>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <!-- Botón flotante para agregar -->
+        <Button Grid.Row="1"
+                Text="+" 
                 FontSize="30" 
-                BackgroundColor="Pink" 
-                TextColor="Black"
+                BackgroundColor="#8E6C47" 
+                TextColor="White"
                 WidthRequest="60" 
                 HeightRequest="60"
-                CornerRadius="10"
-                Clicked="ShowPopup"/>
-        </Grid>
-    </VerticalStackLayout>
+                CornerRadius="30"
+                Clicked="ShowPopup"
+                HorizontalOptions="End"
+                VerticalOptions="End"
+                Margin="0,0,25,25"/>
+    </Grid>
 </ContentPage>

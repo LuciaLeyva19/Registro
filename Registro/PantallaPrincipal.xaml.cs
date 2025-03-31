@@ -8,19 +8,7 @@ public partial class PantallaPrincipal : FlyoutPage
     }
 
     // Maneja el cambio de valor del Slider
-    private void GramosSlider_ValueChanged(object sender, EventArgs e)
-    {
-        int gramos = (int)((Slider)sender).Value;
-        GramosLabel.Text = $"Cantidad: {gramos} g";
-    }
-
-    // Maneja el clic del botón "Dispensar comida"
-    private void DispensarComida_Clicked(object sender, EventArgs e)
-    {
-        int gramos = (int)GramosSlider.Value;
-        DisplayAlert("Comida dispensada", $"Se dispensarán {gramos} gramos de comida.", "Cerrar");
-    }
-
+   
     // Maneja el clic en las opciones del menú lateral
     private void OnMenuItemClicked(object sender, EventArgs e)
     {
@@ -62,5 +50,9 @@ public partial class PantallaPrincipal : FlyoutPage
     private void AbrirMenu (object sender, EventArgs e)
     {
         this.IsPresented = true;
+    }
+    private async void OnFrameTapped(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new PantallaDispensadores());
     }
 }

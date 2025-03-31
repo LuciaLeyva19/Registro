@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Registro.PantallaDispensadores"
+             Title="PantallaDispensadores"
+             BackgroundColor="#FDF7F7"
+             NavigationPage.HasNavigationBar="False">
+    <ScrollView>
+        <!-- Barra de arriba -->
+        <VerticalStackLayout Spacing="0" BackgroundColor="#FFF7EE">
+            <Frame BackgroundColor="#AC8764" HeightRequest="60" Padding="15,0" CornerRadius="30" Margin="15,20,15,0">
+                <Grid>
+                    <ImageButton Source="flecha2.png" HeightRequest="40" HorizontalOptions="Start" Clicked="Clickflecha" Margin="-235,0,0,0"/>
+
+
+                    <Label Text="Dispensador"
+                           TextColor="White"
+                           FontSize="20"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center" 
+                           />
+                    <Image Source="pataa.png" HeightRequest="43"
+                HorizontalOptions="End"
+                VerticalOptions="Center"/>
+
+                </Grid>
+            </Frame>
+            <!-- Frame que contiene los datos del dispensador 1 -->
+            <VerticalStackLayout Spacing="20" Padding="10" VerticalOptions="FillAndExpand">
+                <Image Source="galleta.png"
+                       HeightRequest="165"
+                       HorizontalOptions="Start"
+                       Margin="-60,1,0,100"
+                      Opacity="0.5"/>
+                <Image Source="galleta.png"
+                        HeightRequest="160"
+                        HorizontalOptions="Start"
+                        Margin="300,1,0,-500"
+                       Opacity="0.5"/>
+
+                <Label Text="Lleno" 
+                      HorizontalOptions="Center"
+                      VerticalOptions="Center" 
+                      Margin="0,100,0,30"
+                      FontSize="25"
+                      TextColor="Black"/>
+                <Image Source="recipiente.png" HeightRequest="150" Margin="0,0,0,90" />
+                <Frame BackgroundColor="#AC8764"
+                      CornerRadius="30"
+                      Padding="50"
+                      HasShadow="False"
+                      HorizontalOptions="Fill"
+                      VerticalOptions="End">
+                    <VerticalStackLayout Padding="20">
+                        <Label Text="Selecciona la cantidad de comida" 
+                              FontSize="20" 
+                              HorizontalOptions="Center"
+                              TextColor="White"
+                              FontAttributes="Bold"
+                              Margin="0,-25,0,20"
+                              />
+                        <Slider x:Name="GramosSlider"
+                               Minimum="10" 
+                               Maximum="200" 
+                               Value="50"
+                               ThumbColor="Brown"
+                               DragCompleted="GramosSlider_ValueChanged"/>
+                        <Label x:Name="GramosLabel"
+                              Text="Cantidad: 50 g"
+                              FontSize="18"
+                              HorizontalOptions="Center"
+                              TextColor="White"
+                              FontAttributes="Bold"/>
+                        <Button Text="Dispensar comida"
+                               BackgroundColor="White"
+                               TextColor="#AC8764"
+                               Margin="0,15,0,0"
+                               CornerRadius="20"
+                               HeightRequest="70" 
+                               WidthRequest="300"
+                               BorderColor="White"
+                               BorderWidth="3"
+                               FontSize="25"
+                               Clicked="DispensarComida_Clicked"/>
+
+                    </VerticalStackLayout>
+
+                </Frame>
+
+            </VerticalStackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

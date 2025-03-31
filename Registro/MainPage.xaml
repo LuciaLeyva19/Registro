@@ -11,18 +11,18 @@
             <Image Source="huella22.png"
                   HeightRequest="95"
                   HorizontalOptions="Start"
-                  Margin="0,1,0,-120"
+                  Margin="-20,0,0,-120"
                   />
             
-            <ImageButton Source="flecha.png"
+            <ImageButton Source="flechanegro.png"
              HeightRequest="50"
-             Margin="-400,0,0,-90"
+             Margin="-290,15,0,-90"
              Clicked="regreso" />
 
             <Image Source="huella1.png"
                   HeightRequest="95"
                   HorizontalOptions="Start"
-                  Margin="325,20,0,0"/>  
+                  Margin="235,20,0,0"/>  
 
 
             <Label Text="Bienvenid@ a"
@@ -41,11 +41,12 @@
             <Image Source="hueso.png"
                     HeightRequest="95"
                     HorizontalOptions="Start"
-                    Margin="325,20,0,-150"/>
+                    Margin="235,20,0,-150"/>
+            
             <Image Source="huella4.png"
                     HeightRequest="95"
                     HorizontalOptions="Start"
-                    Margin="3,20,0,-130"/>
+                    Margin="-15,20,0,-130"/>
 
 
             <Frame BackgroundColor="#AC8764"
@@ -60,17 +61,20 @@
                     <HorizontalStackLayout HorizontalOptions="Center" Spacing="10" >
                         
                         <Label Text="Restablecer contraseña"
-                           FontSize="24"
+                           FontSize="19"
                            FontAttributes="Bold"
                            HorizontalOptions="Center"
                            TextColor="White"
+                               Margin="-5,0,26,0"
                            />
                         <Image Source="huella3.png"
                              HeightRequest="30"
                              WidthRequest="30"
-                             VerticalOptions="Center" />
+                             VerticalOptions="Center"
+                             Margin="-35,-6,0,-5"/>
+                        
                     </HorizontalStackLayout>
-                    
+
                     <Label Text="Nueva contraseña"
                            TextColor="White"
                            FontSize="15"/>
@@ -79,39 +83,59 @@
                            BackgroundColor="White"
                            BorderColor="Gray"
                            HasShadow="False"
-                           Opacity="0.7"
-                           >
-                        <Entry Placeholder=""
-                           IsPassword="True"
-                           BackgroundColor="Transparent"
-                           TextColor="#6B4F4F"
-                            />
+                           Opacity="0.7">   
+                        <HorizontalStackLayout>
+                            <Entry x:Name="NuevaContrasenaEntry"
+                                   Placeholder="Ingresa tu nueva contraseña"
+                                   IsPassword="True"
+                                   BackgroundColor="Transparent"
+                                   TextColor="#6B4F4F"
+                                   WidthRequest="191"
+                                   Margin="5,0,0,0"/>
+                            <ImageButton x:Name="MostrarNuevaContrasena"
+                                         Source="ojocerrado.png"
+                                         HeightRequest="30"
+                                         WidthRequest="30"
+                                         BackgroundColor="Transparent"
+                                         Clicked="MostrarOcultarNuevaContrasena"/>
+                        </HorizontalStackLayout>
                     </Frame>
+
                     <Label Text="Confirmar contraseña"
                            TextColor="White"
                            FontSize="15"/>
                     <Frame CornerRadius="20"
-                            Padding="1"
-                            BackgroundColor="White"
-                            BorderColor="Gray"
-                            HasShadow="False"
+                           Padding="1"
+                           BackgroundColor="White"
+                           BorderColor="Gray"
+                           HasShadow="False"
                            Opacity="0.7">
-                        <Entry Placeholder=""
-                            IsPassword="True"
-                            BackgroundColor="Transparent"
-                            TextColor="#6B4F4F"/>
+                        <HorizontalStackLayout>
+                            <Entry x:Name="ConfirmarContrasenaEntry"
+                                   Placeholder="Confirma tu nueva contraseña"
+                                   IsPassword="True"
+                                   BackgroundColor="Transparent"
+                                   TextColor="#6B4F4F"
+                                   WidthRequest="191"
+                                   Margin="0,0,0,0"/>
+                            <ImageButton x:Name="MostrarConfirmarContrasena"
+                                         Source="ojocerrado.png"
+                                         HeightRequest="30"
+                                         WidthRequest="30"
+                                         BackgroundColor="Transparent"
+                                         Clicked="MostrarOcultarConfirmarContrasena"
+                                         Margin="0,0,0,0"/>
+                        </HorizontalStackLayout>
                     </Frame>
-
                     <Button Text="Cambiar contraseña"
                             BackgroundColor="#AC8764"
                             TextColor="White"
                             CornerRadius="20"
                             HeightRequest="50" 
                             WidthRequest="200"
-                            Margin="0,70,0,100"
+                            Margin="0,45,0,100"
                             BorderColor="White"
                             BorderWidth="3"
-                            
                             />
                 </VerticalStackLayout>
                 
@@ -119,7 +143,7 @@
                     <Image Source="perro.png"
                           HeightRequest="215"
                           HorizontalOptions="Start"
-                          Margin="139,-745,0,-45"/>
+                          Margin="85,-698,0,-45"/>
 
 
             

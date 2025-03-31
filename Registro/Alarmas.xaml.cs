@@ -11,4 +11,9 @@ public partial class Alarmas : ContentPage
     {
         await Navigation.PushModalAsync(new AgregarAlarma()); // Abre la ventana emergente
     }
+
+    private async void Alarmainicio(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new PantallaPrincipal());
+    }
 }

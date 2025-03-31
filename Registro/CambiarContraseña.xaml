@@ -3,37 +3,39 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Registro.CambiarContraseña"
              Title="CambiarContraseña"
-             NavigationPage.HasNavigationBar="False">
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="#FDF7F7">
     <ScrollView>
         <VerticalStackLayout Spacing="20" Padding="20">
 
-            <Image Source="huella22.png"
-              HeightRequest="95"
-              HorizontalOptions="Start"
-              Margin="0,1,0,-120"
-              />
+            <!-- Encabezado de la página -->
+            <Frame BackgroundColor="#AC8764" HeightRequest="60" Padding="10,0" CornerRadius="30" Margin="-17,15,-15,50" BorderColor="Black">
+                <Grid>
+                    <ImageButton Source="flecha2.png"
+                      HeightRequest="45"
+                      Margin="-285,0,0,-1"
+                      Clicked="cambiarConainicio"/>
+                    <Label Text="Cambiar Contraseña"
+                        TextColor="White"
+                        FontSize="20"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                         />
+                    <Image Source="pataa.png" HeightRequest="43"
+                        HorizontalOptions="End"
+                        VerticalOptions="Center"/>
+                </Grid>
+            </Frame>
 
-            <ImageButton Source="flecha.png"
-                 HeightRequest="50"
-                 Margin="-400,0,0,-90"
-                  />   
-
-            <Image Source="huella1.png"
-              HeightRequest="95"
-              HorizontalOptions="Start"
-              Margin="325,20,0,0"/>
-
-
-            
             <Image Source="hueso.png"
                 HeightRequest="95"
                 HorizontalOptions="Start"
-                Margin="325,20,0,-150"/>
+                Margin="235,20,0,-150"/>
+            
             <Image Source="huella4.png"
                 HeightRequest="95"
                 HorizontalOptions="Start"
-                Margin="3,20,0,-130"/>
-
+                Margin="-15,20,0,-130"/>
 
             <Frame BackgroundColor="#AC8764"
                CornerRadius="40"
@@ -44,49 +46,56 @@
 
                 <VerticalStackLayout Spacing="15" VerticalOptions="CenterAndExpand">
 
-                    <HorizontalStackLayout HorizontalOptions="Center" Spacing="10" >
-
-                        <Label Text="Cambiar contraseña"
-                       FontSize="24"
-                       FontAttributes="Bold"
-                       HorizontalOptions="Center"
-                       TextColor="White"
-                       />
-                        <Image Source="huella3.png"
-                         HeightRequest="30"
-                         WidthRequest="30"
-                         VerticalOptions="Center" />
-                    </HorizontalStackLayout>
-
                     <Label Text="Nueva contraseña"
                        TextColor="White"
-                       FontSize="15"/>
+                       FontSize="17"/>
                     <Frame CornerRadius="20"
                        Padding="1"
                        BackgroundColor="White"
                        BorderColor="Gray"
                        HasShadow="False"
-                       Opacity="0.7"
-                       >
-                        <Entry Placeholder=""
-                       IsPassword="True"
-                       BackgroundColor="Transparent"
-                       TextColor="#6B4F4F"
-                        />
+                       Opacity="0.7">
+                        <Grid>
+                            <Entry x:Name="NuevaContrasenaEntry"
+                                   Placeholder="Ingresa tu nueva contraseña"
+                                   IsPassword="{Binding NuevaContrasenaEsOculta}"
+                                   BackgroundColor="Transparent"
+                                   TextColor="#6B4F4F"
+                                   Margin="10,0,50,0"/>
+                            <ImageButton Source="ojocerrado.png"
+                                         HeightRequest="25"
+                                         WidthRequest="25"
+                                         BackgroundColor="Transparent"
+                                         HorizontalOptions="End"
+                                         Margin="0,0,10,0"
+                                         Clicked="ToggleNuevaContrasena"/>
+                        </Grid>
                     </Frame>
+
                     <Label Text="Confirmar contraseña"
                        TextColor="White"
-                       FontSize="15"/>
+                       FontSize="17"/>
                     <Frame CornerRadius="20"
                         Padding="1"
                         BackgroundColor="White"
                         BorderColor="Gray"
                         HasShadow="False"
-                       Opacity="0.7">
-                        <Entry Placeholder=""
-                        IsPassword="True"
-                        BackgroundColor="Transparent"
-                        TextColor="#6B4F4F"/>
+                        Opacity="0.7">
+                        <Grid>
+                            <Entry x:Name="ConfirmarContrasenaEntry"
+                                   Placeholder="Confirma tu nueva contraseña"
+                                   IsPassword="{Binding ConfirmarContrasenaEsOculta}"
+                                   BackgroundColor="Transparent"
+                                   TextColor="#6B4F4F"
+                                   Margin="10,0,50,0"/>
+                            <ImageButton Source="ojocerrado.png"
+                                         HeightRequest="25"
+                                         WidthRequest="25"
+                                         BackgroundColor="Transparent"
+                                         HorizontalOptions="End"
+                                         Margin="0,0,10,0"
+                                         Clicked="ToggleConfirmarContrasena"/>
+                        </Grid>
                     </Frame>
 
                     <Button Text="Cambiar contraseña"
@@ -97,18 +106,14 @@
                         WidthRequest="200"
                         Margin="0,70,0,100"
                         BorderColor="White"
-                        BorderWidth="3"
-                        
-                        />
+                        BorderWidth="3"/>
                 </VerticalStackLayout>
-
             </Frame>
+
             <Image Source="perro.png"
                       HeightRequest="215"
                       HorizontalOptions="Start"
-                      Margin="139,-745,0,-45"/>
-
-
+                      Margin="85,-688,0,-45"/>
 
         </VerticalStackLayout>
     </ScrollView>

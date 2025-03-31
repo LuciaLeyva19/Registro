@@ -2,129 +2,136 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Registro.Login"
-             NavigationPage.HasNavigationBar="False">
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="#FDF7F7">
     <ScrollView>
         <VerticalStackLayout Spacing="20" Padding="20">
 
             <Image Source="huella22.png"
-              HeightRequest="95"
-              HorizontalOptions="Start"
-              Margin="0,1,0,-120"/>
-           
-
+                   HeightRequest="95"
+                   HorizontalOptions="Start"
+                   Margin="-20,1,0,-120"/>
+            
             <Image Source="huella1.png"
-              HeightRequest="95"
-              HorizontalOptions="Start"
-              Margin="325,20,0,0"/>
-
+                   HeightRequest="95"
+                   HorizontalOptions="Start"
+                   Margin="234,20,0,0"/>
 
             <Label Text="Welcome to"
-               FontSize="22"
-               HorizontalOptions="Center"
-               TextColor="#6B4F4F"
-               Margin="0,-60,0,0"
-               />
+                   FontSize="22"
+                   HorizontalOptions="Center"
+                   TextColor="#6B4F4F"
+                   Margin="0,-60,0,0" />
 
             <Label Text="Pet Tik-tac"
-               FontSize="38"
-               FontAttributes="Italic,Bold"
-               HorizontalOptions="Center"
-               TextColor="#6B4F4F"
-               />
+                   FontSize="38"
+                   FontAttributes="Italic,Bold"
+                   HorizontalOptions="Center"
+                   TextColor="#6B4F4F" />
+            
             <Image Source="hueso.png"
-                HeightRequest="95"
-                HorizontalOptions="Start"
-                Margin="325,20,0,-150"/>
+                   HeightRequest="95"
+                   HorizontalOptions="Start"
+                   Margin="235,20,0,-150"/>
+            
             <Image Source="huella4.png"
-                HeightRequest="95"
-                HorizontalOptions="Start"
-                Margin="3,20,0,-130"/>
-
+                   HeightRequest="95"
+                   HorizontalOptions="Start"
+                   Margin="-15,20,0,-130"/>
 
             <Frame BackgroundColor="#AC8764"
-               CornerRadius="40"
-               Padding="40"
-               Margin="0,130,0,0"
-               VerticalOptions="EndAndExpand"
-               HorizontalOptions="FillAndExpand">
+                   CornerRadius="40"
+                   Padding="40"
+                   Margin="0,130,0,0"
+                   VerticalOptions="EndAndExpand"
+                   HorizontalOptions="FillAndExpand">
 
                 <VerticalStackLayout Spacing="15" VerticalOptions="CenterAndExpand">
 
-                    <HorizontalStackLayout HorizontalOptions="Center" Spacing="10" >
-
+                    <HorizontalStackLayout HorizontalOptions="Center" Spacing="10">
                         <Label Text="Iniciar sesión"
-                       FontSize="24"
-                       FontAttributes="Bold"
-                       HorizontalOptions="Center"
-                       TextColor="White"
-                       />
+                               FontSize="24"
+                               FontAttributes="Bold"
+                               HorizontalOptions="Center"
+                               TextColor="White" />
                         <Image Source="huella3.png"
-                         HeightRequest="30"
-                         WidthRequest="30"
-                         VerticalOptions="Center" />
+                               HeightRequest="30"
+                               WidthRequest="30"
+                               VerticalOptions="Center" />
                     </HorizontalStackLayout>
 
                     <Label Text="Email"
-                       TextColor="White"
+                           TextColor="White"
                            FontSize="15"/>
                     <Frame CornerRadius="20"
-                       Padding="1"
-                       BackgroundColor="White"
-                       BorderColor="Gray"
-                       HasShadow="False"
-                       Opacity="0.7"
-                       >
-                        <Entry Placeholder=""
-                       BackgroundColor="Transparent"
-                       TextColor="#6B4F4F"
-                        />
+                           Padding="1"
+                           BackgroundColor="White"
+                           BorderColor="Gray"
+                           HasShadow="False"
+                           Opacity="0.7">
+                        <Entry Placeholder="Ingresa tu Email"
+                               BackgroundColor="Transparent"
+                               TextColor="#6B4F4F"
+                               Margin="5,0,32,0"/>
                     </Frame>
+
                     <Label Text="Contraseña"
-                       TextColor="White"/>
+                           TextColor="White"/>
+
+                    <!-- Frame para la contraseña con ojo para mostrar/ocultar -->
                     <Frame CornerRadius="20"
-                        Padding="1"
-                        BackgroundColor="White"
-                        BorderColor="Gray"
-                        HasShadow="False"
-                       Opacity="0.7">
-                        <Entry Placeholder=""
-                        IsPassword="True"
-                        BackgroundColor="Transparent"
-                        TextColor="#6B4F4F"/>
+                           Padding="1"
+                           BackgroundColor="White"
+                           BorderColor="Gray"
+                           HasShadow="False"
+                           Opacity="0.7">
+                        <Grid>
+                            <Entry x:Name="passwordEntry"
+                                   Placeholder="Ingresa tu contraseña"
+                                   IsPassword="True"
+                                   BackgroundColor="Transparent"
+                                   TextColor="#6B4F4F"
+                                   Margin="5,0,32,0"/>
+                            <ImageButton x:Name="eyeButton"
+                                         Source="ojocerrado.png" 
+                                HorizontalOptions="EndAndExpand"
+                                         VerticalOptions="Center"
+                                         WidthRequest="30"
+                                         HeightRequest="30"
+                                         Clicked="OnEyeButtonClicked"
+                                         Margin="0,0,8,0"/>
+                        </Grid>
                     </Frame>
-
-
-
 
                     <Button Text="Iniciar sesión"
-                        BackgroundColor="#AC8764"
-                        TextColor="White"
-                        CornerRadius="20"
-                        HeightRequest="50" 
-                        WidthRequest="150"
-                        Margin="0,-1,0,0"
-                        BorderColor="White"
-                        BorderWidth="3"
-                        Clicked="PantallaPrincipal_Clicked"
-                        />
+                            BackgroundColor="#AC8764"
+                            TextColor="White"
+                            CornerRadius="20"
+                            HeightRequest="50" 
+                            WidthRequest="150"
+                            Margin="0,0,0,0"
+                            BorderColor="White"
+                            BorderWidth="3"
+                            Clicked="PantallaPrincipal_Clicked" />
+
                     <Label Text="¿Has olvidado tu contraseña?"
-                       FontSize="14"
-                       HorizontalOptions="Center"
-                       TextColor="White"
-                       Margin="0,0,0,150">
+                           FontSize="14"
+                           HorizontalOptions="Center"
+                           TextColor="White"
+                           Margin="0,0,0,150">
                         <Label.GestureRecognizers>
                             <TapGestureRecognizer Tapped="RecuperarContra" />
                         </Label.GestureRecognizers>
                     </Label>
-                    
 
-                   
                 </VerticalStackLayout>
             </Frame>
+
             <Image Source="perro.png"
-                      HeightRequest="215"
-                      HorizontalOptions="Start"
-                      Margin="139,-755,0,0"/>
+                   HeightRequest="215"
+                   HorizontalOptions="Start"
+                   Margin="85,-745,0,0"/>
+
             <Button Text="Crear cuenta"
                     BackgroundColor="White"
                     TextColor="#AC8764"
@@ -135,9 +142,9 @@
                     HorizontalOptions="Center"
                     WidthRequest="150"
                     HeightRequest="50"
-                    Margin="0,335,0,0"
-                    Clicked="Registro_Clicked"
-                    />
+                    Margin="0,309,0,0"
+                    Clicked="Registro_Clicked" />
+
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

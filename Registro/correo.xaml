@@ -2,26 +2,27 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Registro.correo"
-             NavigationPage.HasNavigationBar="False">
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="#FDF7F7">
     <ScrollView>
         <VerticalStackLayout Spacing="20" Padding="20">
 
             <Image Source="huella22.png"
                HeightRequest="95"
                HorizontalOptions="Start"
-               Margin="0,1,0,-120"
+               Margin="-20,0,0,-120"
                />
 
-            <ImageButton Source="flecha.png"
-          HeightRequest="50"
-          Margin="-400,0,0,-90"
-          Clicked="OnFlechaClicked"
-          />
+            <ImageButton Source="flechanegro.png"
+                          HeightRequest="50"
+                          Margin="-290,15,0,-90"
+                          Clicked="OnFlechaClicked"
+                          />
 
             <Image Source="huella1.png"
                HeightRequest="95"
                HorizontalOptions="Start"
-               Margin="325,20,0,0"/>
+               Margin="235,20,0,0"/>
 
 
             <Label Text="Bienvenid@ a"
@@ -40,11 +41,12 @@
             <Image Source="hueso.png"
                  HeightRequest="95"
                  HorizontalOptions="Start"
-                 Margin="325,20,0,-150"/>
+                 Margin="235,20,0,-150"/>
+            
             <Image Source="huella4.png"
                  HeightRequest="95"
                  HorizontalOptions="Start"
-                 Margin="3,20,0,-130"/>
+                 Margin="-15,20,0,-130"/>
 
 
             <Frame BackgroundColor="#AC8764"
@@ -59,7 +61,7 @@
                     <HorizontalStackLayout HorizontalOptions="Center" Spacing="10" >
 
                         <Label Text="Recuperar contraseña"
-                        FontSize="24"
+                        FontSize="20"
                         FontAttributes="Bold"
                         HorizontalOptions="Center"
                         TextColor="White"
@@ -67,7 +69,8 @@
                         <Image Source="huella3.png"
                           HeightRequest="30"
                           WidthRequest="30"
-                          VerticalOptions="Center" />
+                          VerticalOptions="Center" 
+                               Margin="-6,-2,0,0"/>
                     </HorizontalStackLayout>
 
                     <Label Text="Email"
@@ -80,10 +83,10 @@
                         HasShadow="False"
                         Opacity="0.7"
                         >
-                        <Entry Placeholder=""
+                        <Entry Placeholder="Ingresa tu Email"
                         BackgroundColor="Transparent"
                         TextColor="#6B4F4F"
-                         />
+                         Margin="5,0,15,0"/>
                     </Frame>
                     
                     <Button Text="Verificar correo"
@@ -92,7 +95,7 @@
                          CornerRadius="20"
                          HeightRequest="50" 
                          WidthRequest="200"
-                         Margin="0,170,0,100"
+                         Margin="0,155,0,100"
                          BorderColor="White"
                          BorderWidth="3"
                             Clicked="cambiar"/>
@@ -102,7 +105,7 @@
             <Image Source="perro.png"
                        HeightRequest="215"
                        HorizontalOptions="Start"
-                       Margin="139,-740,0,-45"/>
+                       Margin="85,-715,0,-45"/>
 
 
 

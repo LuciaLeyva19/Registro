@@ -6,4 +6,10 @@ public partial class Notificaciones : ContentPage
 	{
 		InitializeComponent();
 	}
+
+    private async void notifinicio(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new PantallaPrincipal());
+    }
+
 }
