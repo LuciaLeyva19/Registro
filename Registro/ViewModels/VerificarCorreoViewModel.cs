@@ -108,7 +108,7 @@ namespace Registro.ViewModels
                 if (response.IsSuccessStatusCode)
                 {
                     await Application.Current.MainPage.DisplayAlert("Éxito", "Código verificado correctamente.", "OK");
-                    await _navigation.PushAsync(new MainPage());
+                    await _navigation.PushAsync(new MainPage(Correo));
                 }
                 else
                 {

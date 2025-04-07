@@ -81,102 +81,118 @@
                  Spacing="10">
 
 
-                        <Label Text="Por favor ingrese el código de 4 dígitos enviado a su correo electrónico"
+                        <Label Text="Por favor ingrese el código de 6 dígitos enviado a su correo electrónico"
                            FontSize="14"
                            TextColor="White"
                            HorizontalTextAlignment="Center"/>
 
                         <HorizontalStackLayout HorizontalOptions="Center"
-                                       Spacing="10">
+                                       Spacing="2">
 
                             <Frame CornerRadius="20"
-                            Padding="1"
-                            BackgroundColor="White"
-                            BorderColor="Gray"
-                            HasShadow="False"
-                            Opacity="0.7">
-                                <Entry Placeholder=""
-                                BackgroundColor="Transparent"
-                                TextColor="#6B4F4F"
-                               MaxLength="1"
-                               Keyboard="Numeric"
-                               HorizontalTextAlignment="Center"
-                                       Text="{Binding Codigo1}"/>
-                            </Frame>
-                            
-                            <Frame CornerRadius="20"
-                        Padding="1"
-                        BackgroundColor="White"
-                        BorderColor="Gray"
-                        HasShadow="False"
-                        Opacity="0.7">
-                                <Entry Placeholder=""
-                                BackgroundColor="Transparent"
-                                TextColor="#6B4F4F"
-                               MaxLength="1"
-                               Keyboard="Numeric"
-                               HorizontalTextAlignment="Center"
-                                       Text="{Binding Codigo2}"/>
-                            </Frame>
-
-                            <Frame CornerRadius="20"
-                            Padding="1"
-                            BackgroundColor="White"
-                            BorderColor="Gray"
-                            HasShadow="False"
-                            Opacity="0.7">
-                                <Entry Placeholder=""
-                                BackgroundColor="Transparent"
-                                TextColor="#6B4F4F"
-                               MaxLength="1"
-                               Keyboard="Numeric"
-                               HorizontalTextAlignment="Center"
-                                       Text="{Binding Codigo3}"/>
-                            </Frame>
-
-                            <Frame CornerRadius="20"
-                            Padding="1"
-                            BackgroundColor="White"
-                            BorderColor="Gray"
-                            HasShadow="False"
-                            Opacity="0.7">
-                                <Entry Placeholder=""
-                                BackgroundColor="Transparent"
-                                TextColor="#6B4F4F"
-                               MaxLength="1"
-                               Keyboard="Numeric"
-                               HorizontalTextAlignment="Center"
-                                       Text="{Binding Codigo4}"/>
-                            </Frame>
-
-                            <Frame CornerRadius="20"
-                                    Padding="1"
+                                    Padding="-5"
                                     BackgroundColor="White"
                                     BorderColor="Gray"
                                     HasShadow="False"
                                     Opacity="0.7">
-                                <Entry Placeholder=""
+                                <Entry 
+                                    x:Name="Entry1"
+                                   Placeholder=""
+                                   BackgroundColor="Transparent"
+                                   TextColor="#6B4F4F"
+                                   MaxLength="1"
+                                   Keyboard="Numeric"
+                                   HorizontalTextAlignment="Center"
+                                   Text="{Binding Codigo1}"
+                                   TextChanged="Entry_TextChanged"/>
+                            </Frame>
+
+                            <Frame CornerRadius="20"
+                                    Padding="-5"
+                                    BackgroundColor="White"
+                                    BorderColor="Gray"
+                                    HasShadow="False"
+                                    Opacity="0.7">
+                                <Entry 
+                                    x:Name="Entry2"
+                                   Placeholder=""
+                                   BackgroundColor="Transparent"
+                                   TextColor="#6B4F4F"
+                                   MaxLength="1"
+                                   Keyboard="Numeric"
+                                   HorizontalTextAlignment="Center"
+                                   Text="{Binding Codigo2}"
+                                   TextChanged="Entry_TextChanged"/>
+                            </Frame>
+
+                            <Frame CornerRadius="20"
+                                    Padding="-5"
+                                    BackgroundColor="White"
+                                    BorderColor="Gray"
+                                    HasShadow="False"
+                                    Opacity="0.7">
+                                <Entry
+                                    x:Name="Entry3"
+                                    Placeholder=""
+                                    BackgroundColor="Transparent"
+                                    TextColor="#6B4F4F"
+                                    MaxLength="1"
+                                    Keyboard="Numeric"
+                                    HorizontalTextAlignment="Center"
+                                    Text="{Binding Codigo3}"
+                                    TextChanged="Entry_TextChanged"/>
+                            </Frame>
+
+                            <Frame CornerRadius="20"
+                                    Padding="-5"
+                                    BackgroundColor="White"
+                                    BorderColor="Gray"
+                                    HasShadow="False"
+                                    Opacity="0.7">
+                                <Entry 
+                                    x:Name="Entry4"
+                                    Placeholder=""
+                                    BackgroundColor="Transparent"
+                                    TextColor="#6B4F4F"
+                                    MaxLength="1"
+                                    Keyboard="Numeric"
+                                    HorizontalTextAlignment="Center"
+                                    Text="{Binding Codigo4}"
+                                    TextChanged="Entry_TextChanged"/>
+                            </Frame>
+
+                            <Frame CornerRadius="20"
+                                    Padding="-5"
+                                    BackgroundColor="White"
+                                    BorderColor="Gray"
+                                    HasShadow="False"
+                                    Opacity="0.7">
+                                <Entry x:Name="Entry5"
+                                       Placeholder=""
                                        BackgroundColor="Transparent"
                                        TextColor="#6B4F4F"
                                        MaxLength="1"
                                        Keyboard="Numeric"
                                        HorizontalTextAlignment="Center"
-                                       Text="{Binding Codigo5}"/>   
+                                       Text="{Binding Codigo5}"
+                                       TextChanged="Entry_TextChanged"/>   
                             </Frame>
 
                             <Frame CornerRadius="20"
-                                    Padding="1"
+                                    Padding="-5"
                                     BackgroundColor="White"
                                     BorderColor="Gray"
                                     HasShadow="False"
                                     Opacity="0.7">
-                                <Entry Placeholder=""
-                                        BackgroundColor="Transparent"
-                                        TextColor="#6B4F4F"
-                                        MaxLength="1"
-                                        Keyboard="Numeric"
-                                        HorizontalTextAlignment="Center"
-                                               Text="{Binding Codigo6}"/>   
+                                <Entry x:Name="Entry6"
+                                       Placeholder=""
+                                       BackgroundColor="Transparent"
+                                       TextColor="#6B4F4F"
+                                       MaxLength="1"
+                                       Keyboard="Numeric"
+                                       HorizontalTextAlignment="Center"
+                                       Text="{Binding Codigo6}"
+                                       TextChanged="Entry_TextChanged"/>   
                             </Frame>
 
                         </HorizontalStackLayout>
@@ -187,7 +203,7 @@
                         CornerRadius="20"
                         HeightRequest="50" 
                         WidthRequest="200"
-                        Margin="0,135,0,300"
+                        Margin="0,110,0,300"
                         BorderColor="White"
                         BorderWidth="3"
                             Command="{Binding VerificarCodigoCommand}"
@@ -198,7 +214,7 @@
             <Image Source="perro.png"
                 HeightRequest="215"
                 HorizontalOptions="Start"
-                Margin="85,-930,0,-45"/>
+                Margin="85,-895,0,-45"/>
 
 
 

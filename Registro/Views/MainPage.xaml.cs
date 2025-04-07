@@ -1,13 +1,19 @@
-﻿namespace Registro
+﻿using Registro.ViewModels;
+
+namespace Registro
 {
     public partial class MainPage : ContentPage
     {
         private bool _nuevaContrasenaVisible = false;
         private bool _confirmarContrasenaVisible = false;
 
-        public MainPage()
+        public MainPage(string correo)
         {
             InitializeComponent();
+            BindingContext = new NuevaContraseñaViewModel(Navigation)
+            {
+                Correo = correo
+            };
         }
 
         private void MostrarOcultarNuevaContrasena(object sender, EventArgs e)

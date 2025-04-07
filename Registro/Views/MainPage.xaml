@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:vm="clr-namespace:Registro.ViewModels"
              x:Class="Registro.MainPage"
              BackgroundColor="#FDF7F7"
              NavigationPage.HasNavigationBar="False">
@@ -91,7 +92,8 @@
                                    BackgroundColor="Transparent"
                                    TextColor="#6B4F4F"
                                    WidthRequest="191"
-                                   Margin="5,0,0,0"/>
+                                   Margin="5,0,0,0"
+                                   Text="{Binding NuevaContraseña}"/>
                             <ImageButton x:Name="MostrarNuevaContrasena"
                                          Source="ojocerrado.png"
                                          HeightRequest="30"
@@ -117,7 +119,8 @@
                                    BackgroundColor="Transparent"
                                    TextColor="#6B4F4F"
                                    WidthRequest="191"
-                                   Margin="0,0,0,0"/>
+                                   Margin="0,0,0,0"
+                                   Text="{Binding ConfirmarContraseña}"/>
                             <ImageButton x:Name="MostrarConfirmarContrasena"
                                          Source="ojocerrado.png"
                                          HeightRequest="30"
@@ -136,6 +139,7 @@
                             Margin="0,45,0,100"
                             BorderColor="White"
                             BorderWidth="3"
+                            Command="{Binding CambiarContraseñaCommand}"
                             />
                 </VerticalStackLayout>
                 
