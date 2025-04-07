@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:Registro.ViewModels"
              x:Class="Registro.VerificarCorreo"
              Title="VerificarCorreo"
              NavigationPage.HasNavigationBar="False"
@@ -99,8 +100,10 @@
                                 TextColor="#6B4F4F"
                                MaxLength="1"
                                Keyboard="Numeric"
-                               HorizontalTextAlignment="Center"/>
+                               HorizontalTextAlignment="Center"
+                                       Text="{Binding Codigo1}"/>
                             </Frame>
+                            
                             <Frame CornerRadius="20"
                         Padding="1"
                         BackgroundColor="White"
@@ -112,7 +115,8 @@
                                 TextColor="#6B4F4F"
                                MaxLength="1"
                                Keyboard="Numeric"
-                               HorizontalTextAlignment="Center"/>
+                               HorizontalTextAlignment="Center"
+                                       Text="{Binding Codigo2}"/>
                             </Frame>
 
                             <Frame CornerRadius="20"
@@ -126,7 +130,8 @@
                                 TextColor="#6B4F4F"
                                MaxLength="1"
                                Keyboard="Numeric"
-                               HorizontalTextAlignment="Center"/>
+                               HorizontalTextAlignment="Center"
+                                       Text="{Binding Codigo3}"/>
                             </Frame>
 
                             <Frame CornerRadius="20"
@@ -140,8 +145,40 @@
                                 TextColor="#6B4F4F"
                                MaxLength="1"
                                Keyboard="Numeric"
-                               HorizontalTextAlignment="Center"/>
+                               HorizontalTextAlignment="Center"
+                                       Text="{Binding Codigo4}"/>
                             </Frame>
+
+                            <Frame CornerRadius="20"
+                                    Padding="1"
+                                    BackgroundColor="White"
+                                    BorderColor="Gray"
+                                    HasShadow="False"
+                                    Opacity="0.7">
+                                <Entry Placeholder=""
+                                       BackgroundColor="Transparent"
+                                       TextColor="#6B4F4F"
+                                       MaxLength="1"
+                                       Keyboard="Numeric"
+                                       HorizontalTextAlignment="Center"
+                                       Text="{Binding Codigo5}"/>   
+                            </Frame>
+
+                            <Frame CornerRadius="20"
+                                    Padding="1"
+                                    BackgroundColor="White"
+                                    BorderColor="Gray"
+                                    HasShadow="False"
+                                    Opacity="0.7">
+                                <Entry Placeholder=""
+                                        BackgroundColor="Transparent"
+                                        TextColor="#6B4F4F"
+                                        MaxLength="1"
+                                        Keyboard="Numeric"
+                                        HorizontalTextAlignment="Center"
+                                               Text="{Binding Codigo6}"/>   
+                            </Frame>
+
                         </HorizontalStackLayout>
                     </VerticalStackLayout>
                     <Button Text="Verificar"
@@ -153,7 +190,7 @@
                         Margin="0,135,0,300"
                         BorderColor="White"
                         BorderWidth="3"
-                            Clicked="pruebaARecuperarCon"
+                            Command="{Binding VerificarCodigoCommand}"
                       />
 
                 </VerticalStackLayout>

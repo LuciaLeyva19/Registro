@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:Registro.ViewModels"
              x:Class="Registro.correo"
              NavigationPage.HasNavigationBar="False"
              BackgroundColor="#FDF7F7">
@@ -86,10 +87,11 @@
                         <Entry Placeholder="Ingresa tu Email"
                         BackgroundColor="Transparent"
                         TextColor="#6B4F4F"
-                         Margin="5,0,15,0"/>
+                         Margin="5,0,15,0"
+                               Text="{Binding Correo}"/>
                     </Frame>
                     
-                    <Button Text="Verificar correo"
+                    <Button Text="Enviar codigo"
                          BackgroundColor="#AC8764"
                          TextColor="White"
                          CornerRadius="20"
@@ -98,7 +100,7 @@
                          Margin="0,155,0,100"
                          BorderColor="White"
                          BorderWidth="3"
-                            Clicked="cambiar"/>
+                         Command="{Binding EnviarCodigoCommand}"/>
                 </VerticalStackLayout>
 
             </Frame>
