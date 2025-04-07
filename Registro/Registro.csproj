@@ -80,37 +80,37 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="AgregarAlarma.xaml">
+	  <MauiXaml Update="Views\AgregarAlarma.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Alarmas.xaml">
+	  <MauiXaml Update="Views\Alarmas.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="CambiarContraseña.xaml">
+	  <MauiXaml Update="Views\CambiarContraseña.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="correo.xaml">
+	  <MauiXaml Update="Views\correo.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Historial.xaml">
+	  <MauiXaml Update="Views\Historial.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Login.xaml">
+	  <MauiXaml Update="Views\Login.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Notificaciones.xaml">
+	  <MauiXaml Update="Views\Notificaciones.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="PantallaDispensadores.xaml">
+	  <MauiXaml Update="Views\PantallaDispensadores.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="PantallaPrincipal.xaml">
+	  <MauiXaml Update="Views\PantallaPrincipal.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Registro.xaml">
+	  <MauiXaml Update="Views\Registro.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="VerificarCorreo.xaml">
+	  <MauiXaml Update="Views\VerificarCorreo.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

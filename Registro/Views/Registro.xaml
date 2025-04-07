@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:vm="clr-namespace:Registro.ViewModels"
              x:Class="Registro.Registro"
              NavigationPage.HasNavigationBar="False"
              BackgroundColor="#FDF7F7">
@@ -75,7 +76,8 @@
                         <Entry Placeholder="Ingresa tu nombre de usuario"
                                BackgroundColor="Transparent"
                                TextColor="#6B4F4F"
-                               Margin="5,0,15,0" />
+                               Margin="5,0,15,0"
+                               Text="{Binding Nombre}"/>
                     </Frame>
 
                     <!-- Campo de Email -->
@@ -90,7 +92,8 @@
                         <Entry Placeholder="Ingresa tu Email"
                                BackgroundColor="Transparent"
                                TextColor="#6B4F4F"
-                               Margin="5,0,15,0"/>
+                               Margin="5,0,15,0"
+                               Text="{Binding Correo}"/>
                     </Frame>
 
                     <!-- Campo de Contraseña -->
@@ -102,24 +105,38 @@
                            BorderColor="#6B4F4F"
                            HasShadow="False"
                            Opacity="0.7">
+
+
                         <Grid>
-                            <Entry x:Name="ContraseñaEntry"
+                            <Entry x:Name="passwordEntry"
                                    Placeholder="Ingresa tu contraseña"
-                                   IsPassword="{Binding ContraseñaEsOculta}"
+                                   IsPassword="{Binding IsPasswordVisible}"
                                    BackgroundColor="Transparent"
                                    TextColor="#6B4F4F"
-                                   Margin="5,0,50,0"/>
+                                   Margin="5,0,50,0"
+                                   Text="{Binding Contraseña}"/>
+
+
                             <!-- Icono del ojo -->
-                            <ImageButton x:Name="OjoIcono"
-                                         Source="ojocerrado.png"
-                                         HeightRequest="25"
-                                         WidthRequest="25"
-                                         BackgroundColor="Transparent"
-                                         HorizontalOptions="End"
-                                         Margin="0,0,10,0"
-                                         Clicked="ToggleContraseñaVisibilidad"/>
+                            <ImageButton Source="{Binding OjoIcono}"
+                 HeightRequest="25"
+                 WidthRequest="25"
+                 BackgroundColor="Transparent"
+                 HorizontalOptions="End"
+                 Margin="0,0,10,0"
+                 Command="{Binding VerOjoContraCommand}"
+                 Grid.Column="1"/>
+                   
                         </Grid>
+                      
                     </Frame>
+                    <Label Text="{Binding MensajeError}"
+       TextColor="Red"
+       FontSize="14"
+       IsVisible="{Binding MensajeError, Converter={StaticResource StringNotEmptyConverter}}"
+                           Margin="0,-8,0,-15"/>
+
+
 
                     <!-- Enlace a inicio de sesión -->
                     <Label Text="¿Ya tienes una cuenta? Inicia sesión"
@@ -132,15 +149,18 @@
                         </Label.GestureRecognizers>
                     </Label>
 
+
                 </VerticalStackLayout>
+
+
             </Frame>
 
             <!-- Imagen de perro -->
             <Image Source="perro.png"
                   HeightRequest="215"
                   HorizontalOptions="Start"
-                  Margin="85,-785,0,0"/>
-
+                  Margin="85,-795,0,0"/>
+            
             <!-- Botón de continuar -->
             <Button Text="Continuar"
                     BackgroundColor="#AC8764"
@@ -150,7 +170,10 @@
                     WidthRequest="150"
                     BorderColor="White"
                     BorderWidth="3"
-                    Margin="0,350,0,0"/>
+                    Margin="0,360,0,0"
+                    Command="{Binding RegisterCommand}"/>
+           
+
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:Registro.ViewModels"
              x:Class="Registro.Login"
              NavigationPage.HasNavigationBar="False"
              BackgroundColor="#FDF7F7">
@@ -72,7 +73,8 @@
                         <Entry Placeholder="Ingresa tu Email"
                                BackgroundColor="Transparent"
                                TextColor="#6B4F4F"
-                               Margin="5,0,32,0"/>
+                               Margin="5,0,32,0"
+                               Text="{Binding Correo}"/>
                     </Frame>
 
                     <Label Text="Contraseña"
@@ -88,17 +90,18 @@
                         <Grid>
                             <Entry x:Name="passwordEntry"
                                    Placeholder="Ingresa tu contraseña"
-                                   IsPassword="True"
+                                   IsPassword="{Binding IsPasswordVisible}"
                                    BackgroundColor="Transparent"
                                    TextColor="#6B4F4F"
-                                   Margin="5,0,32,0"/>
+                                   Margin="5,0,32,0"
+                                   Text="{Binding Contraseña}"/>
                             <ImageButton x:Name="eyeButton"
-                                         Source="ojocerrado.png" 
+                                         Source="{Binding EyeIcon}" 
+                                         Command="{Binding PasswordCommand}"
                                 HorizontalOptions="EndAndExpand"
                                          VerticalOptions="Center"
                                          WidthRequest="30"
                                          HeightRequest="30"
-                                         Clicked="OnEyeButtonClicked"
                                          Margin="0,0,8,0"/>
                         </Grid>
                     </Frame>
@@ -109,10 +112,20 @@
                             CornerRadius="20"
                             HeightRequest="50" 
                             WidthRequest="150"
-                            Margin="0,0,0,0"
+                            Margin="0,0,0,-4"
                             BorderColor="White"
                             BorderWidth="3"
-                            Clicked="PantallaPrincipal_Clicked" />
+                            Command="{Binding LoginCommand}" />
+
+                    <!-- Mensaje de error -->
+                    <Label x:Name="ErrorMessage"
+            Text="{Binding MensajeError}"
+            TextColor="Red"
+            FontSize="14"
+            IsVisible="{Binding MensajeError, Converter={StaticResource StringToVisibilityConverter}}"
+            HorizontalOptions="Center"
+                           Margin="0,-8,0,-15"/>
+
 
                     <Label Text="¿Has olvidado tu contraseña?"
                            FontSize="14"
@@ -120,7 +133,7 @@
                            TextColor="White"
                            Margin="0,0,0,150">
                         <Label.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="RecuperarContra" />
+                            <TapGestureRecognizer Command="{Binding RecuperarContraCommand}" />
                         </Label.GestureRecognizers>
                     </Label>
 
@@ -130,7 +143,7 @@
             <Image Source="perro.png"
                    HeightRequest="215"
                    HorizontalOptions="Start"
-                   Margin="85,-745,0,0"/>
+                   Margin="85,-755,0,0"/>
 
             <Button Text="Crear cuenta"
                     BackgroundColor="White"
@@ -142,8 +155,8 @@
                     HorizontalOptions="Center"
                     WidthRequest="150"
                     HeightRequest="50"
-                    Margin="0,309,0,0"
-                    Clicked="Registro_Clicked" />
+                    Margin="0,320,0,0"
+                    Command="{Binding CrearCuentaCommand}" />
 
         </VerticalStackLayout>
     </ScrollView>
