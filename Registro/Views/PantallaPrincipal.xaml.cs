@@ -1,3 +1,5 @@
+using Registro.ViewModels;
+
 namespace Registro;
 
 public partial class PantallaPrincipal : FlyoutPage
@@ -5,6 +7,7 @@ public partial class PantallaPrincipal : FlyoutPage
     public PantallaPrincipal()
     {
         InitializeComponent();
+        BindingContext = new PantallaPrincipalViewModel();
     }
 
     // Maneja el cambio de valor del Slider
@@ -24,14 +27,7 @@ public partial class PantallaPrincipal : FlyoutPage
             {
                 Detail = new NavigationPage(new CambiarContraseña());
             }
-            else if (button.Text == "Notificaciones")
-            {
-                Detail = new NavigationPage(new Notificaciones());
-            }
-            else if (button.Text == "Historial")
-            {
-                Detail = new NavigationPage(new Historial());
-            }
+
             else if (button.Text == "Alarmas")
             {
                 Detail = new NavigationPage(new Alarmas());

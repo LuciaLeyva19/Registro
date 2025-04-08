@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <FlyoutPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:vm="clr-namespace:Registro.ViewModels"
             x:Class="Registro.PantallaPrincipal"
             x:Name="MiFlyoutPage"
             BackgroundColor="#FDF7F7">
@@ -54,28 +55,7 @@
                                 <Shadow Brush="#80000000" Offset="0,3" Radius="3" Opacity="0.2" />
                             </Button.Shadow>
                         </Button>
-                        <Button Text="Notificaciones" 
-                                BackgroundColor="#AC8764" 
-                                TextColor="White" 
-                                FontSize="16"
-                                HeightRequest="50"
-                                CornerRadius="30"
-                                Clicked="OnMenuItemClicked">
-                            <Button.Shadow>
-                                <Shadow Brush="#80000000" Offset="0,3" Radius="3" Opacity="0.2" />
-                            </Button.Shadow>
-                        </Button>
-                        <Button Text="Historial" 
-                                BackgroundColor="#AC8764" 
-                                TextColor="White" 
-                                FontSize="16"
-                                HeightRequest="50"
-                                CornerRadius="30"
-                                Clicked="OnMenuItemClicked">
-                            <Button.Shadow>
-                                <Shadow Brush="#80000000" Offset="0,3" Radius="3" Opacity="0.2" />
-                            </Button.Shadow>
-                        </Button>
+
                         <Button Text="Alarmas" 
                                 BackgroundColor="#AC8764" 
                                 TextColor="White" 
@@ -137,79 +117,33 @@
                         <!-- Contenido de la página principal con ScrollView -->
                         <ScrollView Grid.Row="1" Margin="0,10,0,0">
                             <VerticalStackLayout Spacing="18" Padding="15,5">
-                                <!-- Frame que contiene los datos del dispensador 1 -->
-                                <Frame HeightRequest="150" BackgroundColor="#9F7B58" CornerRadius="15" Padding="15" HasShadow="True">
-                                    <Frame.GestureRecognizers>
-                                        <TapGestureRecognizer Tapped="OnFrameTapped" />
-                                    </Frame.GestureRecognizers>
-                                    <Grid ColumnDefinitions="Auto,*" ColumnSpacing="15">
-                                        <Frame Grid.Column="0" BackgroundColor="#F9F0E7" CornerRadius="10" Padding="8" VerticalOptions="Center">
-                                            <Image Source="removida.png" HeightRequest="100" WidthRequest="100" Aspect="AspectFit" />
-                                        </Frame>
-                                        <StackLayout Grid.Column="1" VerticalOptions="Center" Spacing="5">
-                                            <Label Text="Dispensador Edificio No.1" 
-                                                   TextColor="White" 
-                                                   FontSize="14" 
-                                                   FontAttributes="Bold"/>
-                                            <Label Text="Estado:" 
-                                                   TextColor="White" 
-                                                   FontSize="17"/>
-                                            <Frame BackgroundColor="#4CAF50" CornerRadius="8" Padding="8,4" HorizontalOptions="Start">
-                                                <Label Text="Lleno" TextColor="White" FontSize="14" FontAttributes="Bold"/>
+                                <!-- Sección para los dispensadores -->
+                                <CollectionView ItemsSource="{Binding Dispensadores}">
+                                    <CollectionView.ItemTemplate>
+                                        <DataTemplate>
+                                            <Frame HeightRequest="150" BackgroundColor="#9F7B58" CornerRadius="15" Padding="15" HasShadow="True">
+                                                <Frame.GestureRecognizers>
+                                                    <TapGestureRecognizer Tapped="OnFrameTapped" />
+                                                </Frame.GestureRecognizers>
+                                                <Grid ColumnDefinitions="Auto,*" ColumnSpacing="15">
+                                                    <Frame Grid.Column="0" BackgroundColor="#F9F0E7" CornerRadius="10" Padding="8" VerticalOptions="Center">
+                                                        <Image Source="removida.png" HeightRequest="100" WidthRequest="100" Aspect="AspectFit" />
+                                                    </Frame>
+                                                    <StackLayout Grid.Column="1" VerticalOptions="Center" Spacing="5">
+                                                        <Label Text="{Binding ubicacion}" TextColor="White" FontSize="14" FontAttributes="Bold"/>
+                                                        <Label Text="Estado:" TextColor="White" FontSize="17"/>
+                                                        <Frame BackgroundColor="#4CAF50" CornerRadius="8" Padding="8,4" HorizontalOptions="Start">
+                                                            <Label Text="{Binding estado}" TextColor="White" FontSize="14" FontAttributes="Bold"/>
+                                                        </Frame>
+                                                    </StackLayout>
+                                                </Grid>
                                             </Frame>
-                                        </StackLayout>
-                                    </Grid>
-                                </Frame>
-
-                                <!-- Frame que contiene los datos del dispensador 2 -->
-                                <Frame HeightRequest="150" BackgroundColor="#9F7B58" CornerRadius="15" Padding="15" HasShadow="True">
-                                    <Frame.GestureRecognizers>
-                                        <TapGestureRecognizer Tapped="OnFrameTapped" />
-                                    </Frame.GestureRecognizers>
-                                    <Grid ColumnDefinitions="Auto,*" ColumnSpacing="15">
-                                        <Frame Grid.Column="0" BackgroundColor="#F9F0E7" CornerRadius="10" Padding="8" VerticalOptions="Center">
-                                            <Image Source="removida.png" HeightRequest="100" WidthRequest="100" Aspect="AspectFit" />
-                                        </Frame>
-                                        <StackLayout Grid.Column="1" VerticalOptions="Center" Spacing="5">
-                                            <Label Text="Dispensador Edificio No.2" 
-                                                   TextColor="White" 
-                                                   FontSize="14" 
-                                                   FontAttributes="Bold"/>
-                                            <Label Text="Estado:" 
-                                                   TextColor="White" 
-                                                   FontSize="17"/>
-                                            <Frame BackgroundColor="#F44336" CornerRadius="8" Padding="8,4" HorizontalOptions="Start">
-                                                <Label Text="Vacio" TextColor="White" FontSize="14" FontAttributes="Bold"/>
-                                            </Frame>
-                                        </StackLayout>
-                                    </Grid>
-                                </Frame>
-
-                                <!-- Frame que contiene los datos del dispensador 3 -->
-                                <Frame HeightRequest="150" BackgroundColor="#9F7B58" CornerRadius="15" Padding="15" HasShadow="True">
-                                    <Frame.GestureRecognizers>
-                                        <TapGestureRecognizer Tapped="OnFrameTapped" />
-                                    </Frame.GestureRecognizers>
-                                    <Grid ColumnDefinitions="Auto,*" ColumnSpacing="15">
-                                        <Frame Grid.Column="0" BackgroundColor="#F9F0E7" CornerRadius="10" Padding="8" VerticalOptions="Center">
-                                            <Image Source="removida.png" HeightRequest="100" WidthRequest="100" Aspect="AspectFit" />
-                                        </Frame>
-                                        <StackLayout Grid.Column="1" VerticalOptions="Center" Spacing="5">
-                                            <Label Text="Dispensador Edificio No.3" 
-                                                   TextColor="White" 
-                                                   FontSize="14" 
-                                                   FontAttributes="Bold"/>
-                                            <Label Text="Estado:" 
-                                                   TextColor="White" 
-                                                   FontSize="17"/>
-                                            <Frame BackgroundColor="#FFC107" CornerRadius="8" Padding="8,4" HorizontalOptions="Start">
-                                                <Label Text="Medio" TextColor="White" FontSize="14" FontAttributes="Bold"/>
-                                            </Frame>
-                                        </StackLayout>
-                                    </Grid>
-                                </Frame>
+                                        </DataTemplate>
+                                    </CollectionView.ItemTemplate>
+                                </CollectionView>
                             </VerticalStackLayout>
                         </ScrollView>
+                        
 
                         <!-- Botón flotante -->
                         <Button Grid.Row="2"
