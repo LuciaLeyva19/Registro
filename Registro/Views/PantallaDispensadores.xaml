@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:Registro.ViewModels"
              x:Class="Registro.PantallaDispensadores"
              Title="PantallaDispensadores"
              BackgroundColor="#FDF7F7"
@@ -25,7 +26,7 @@
 
                 </Grid>
             </Frame>
-            <!-- Frame que contiene los datos del dispensador 1 -->
+            
             <VerticalStackLayout Spacing="20" Padding="10" VerticalOptions="FillAndExpand">
                 <Image Source="galleta.png"
                        HeightRequest="165"
@@ -62,11 +63,11 @@
                         <Slider x:Name="GramosSlider"
                                Minimum="10" 
                                Maximum="200" 
-                               Value="50"
+                               Value="{Binding CantidadGramos}"
                                ThumbColor="Brown"
-                               DragCompleted="GramosSlider_ValueChanged"/>
+                              />
                         <Label x:Name="GramosLabel"
-                              Text="Cantidad: 50 g"
+                              Text="{Binding GramosTexto}"
                               FontSize="18"
                               HorizontalOptions="Center"
                               TextColor="White"
@@ -81,7 +82,7 @@
                                BorderColor="White"
                                BorderWidth="3"
                                FontSize="25"
-                               Clicked="DispensarComida_Clicked"/>
+                               Command="{Binding DispensarComidaCommand}"/>
 
                     </VerticalStackLayout>
 
